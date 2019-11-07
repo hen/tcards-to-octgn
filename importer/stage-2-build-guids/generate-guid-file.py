@@ -2,6 +2,7 @@ import os
 import xml.etree.ElementTree as ET
 from collections import OrderedDict
 import json
+import re
 
 # Need to clone the OCTGN_TF repository. 
 # TODO: Make this less hardcoded
@@ -19,13 +20,16 @@ for set_directory in os.listdir(data_location):
                 octgn_id = card_tag.attrib['id']
                 octgn_name = card_tag.attrib['name']
                 octgn_cardnum = card_tag.find('./property[@name="Card Number"]').attrib['value']
+                # Fix the OCTGN data not being consistent
+                octgn_cardnum = re.sub(r"^[^ ]* ", '', octgn_cardnum)
+                octgn_cardnum = re.sub(r"^[UCR]", '', octgn_cardnum)
                 if(octgn_cardnum == ""):
                     print('Warning: No Card ID for ' + octgn_name + ', using the name')
                     card_to_guid[octgn_name] = octgn_id
                     continue
 
                 octgn_cardtype = card_tag.find('./property[@name="Type"]').attrib['value']
-                if(octgn_cardtype == 'Character'):
+                if(octgn_cardtype == 'Character' and not octgn_cardnum.startswith('T')):
                     bot='T'
                 else:
                     bot=''
