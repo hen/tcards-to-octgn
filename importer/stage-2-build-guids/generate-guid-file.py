@@ -24,8 +24,8 @@ for set_directory in os.listdir(data_location):
                 octgn_cardnum = re.sub(r"^[^ ]* ", '', octgn_cardnum)
                 octgn_cardnum = re.sub(r"^[UCR]", '', octgn_cardnum)
                 if(octgn_cardnum == ""):
-                    print('Warning: No Card ID for ' + octgn_name + ', using the name')
-                    card_to_guid[octgn_name] = octgn_id
+                    print('Warning: No Card ID for ' + octgn_name + ', using @name')
+                    card_to_guid['@'+octgn_name] = octgn_id
                     continue
 
                 octgn_cardtype = card_tag.find('./property[@name="Type"]').attrib['value']
