@@ -1,2 +1,1 @@
-mkdir target
-mkdir target/tmp
+mkdir -p target/tmp
