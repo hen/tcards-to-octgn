@@ -1,5 +1,8 @@
+# pip3 install airtable-python-wrapper
+# pip3 install pystache
+
 sh importer/stage-0-setup/mkdirs.sh
-python3 importer/stage-1-get-json/get-json.py
+#python3 importer/stage-1-get-json/get-json.py
 python3 importer/stage-2-build-guids/generate-guid-file.py
 python3 importer/stage-3-test-guid-file/test-guid.py
 python3 importer/stage-4-test-json-file/test-existing-guids.py
