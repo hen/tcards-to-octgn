@@ -1,0 +1,22 @@
+<card id="{{guid}}" name="{{card.Name}} - {{card.Subtitle}}" size="{{card.__Size}}">
+<property name="Card Number" value="{{card.Card #}}" />
+<property name="Type" value="Character" />
+<property name="ATK" value="{{card.__AltATK}}" />
+<property name="DEF" value="{{card.__AltDEF}}" />
+<property name="HP" value="{{card.__Health}}" />
+<property name="Stars" value="{{card.__Stars}}" />
+<property name="Trait" value="{{card.__Traits}}" />
+<property name="Orange Pips" value="" />
+<property name="Blue Pips" value="" />
+<property name="White Pips" value="" />
+<property name="Green Pips" value="" />
+<property name="Faction" value="{{card.Faction}}" />
+<property name="Text" value="{{card.__AltText" />
+<property name="Rarity" value="{{card.Rarity}}" />
+<alternate name="{{card.Name}} - {{card.Subtitle}}" type="bot">
+<property name="ATK" value="{{card.__BotATK}}" />
+<property name="DEF" value="{{card.__BotDEF}}" />
+<property name="Text" value="{{card.__BotText" />
+<property name="Trait" value="{{card.__AltTraits}}" />
+</alternate>
+</card>
